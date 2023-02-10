@@ -8,7 +8,11 @@ const Index = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="LoginModal" component={LoginModal} />
+        <Stack.Screen
+          options={{ headerShown: false }}
+          name="LoginModal"
+          component={LoginModal}
+        />
         <Stack.Screen name="Home" component={Home} />
       </Stack.Navigator>
     </NavigationContainer>

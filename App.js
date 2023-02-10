@@ -1,5 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaView, StyleSheet, Text, View } from "react-native";
+import { NativeBaseProvider } from "native-base";
 import {
   useFonts,
   Inter_100Thin,
@@ -31,8 +32,10 @@ export default function App() {
     return <Loading />;
   }
   return (
-    <SafeAreaView style={{ backgroundColor: "#1E1E1E", height: "100%" }}>
-      <Index />
-    </SafeAreaView>
+    <NativeBaseProvider>
+      <SafeAreaView style={{ backgroundColor: "#1E1E1E", height: "100%" }}>
+        <Index />
+      </SafeAreaView>
+    </NativeBaseProvider>
   );
 }
