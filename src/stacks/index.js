@@ -2,7 +2,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import React, { useEffect } from "react";
 import Home from "../screens/Home";
-import LoginModal from "../screens/loginModal";
+import LoginModal from "../screens/LoginModal";
 const Stack = createStackNavigator();
 const Index = () => {
   return (
