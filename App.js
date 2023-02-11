@@ -15,6 +15,8 @@ import {
 } from "@expo-google-fonts/inter";
 import Loading from "./src/components/Loading";
 import Index from "./src/stacks";
+import { COLORS } from "./src/constants/Theme";
+import { useEffect } from "react";
 export default function App() {
   let [isFonts] = useFonts({
     Inter_100Thin,
@@ -27,13 +29,12 @@ export default function App() {
     Inter_800ExtraBold,
     Inter_900Black,
   });
-
   if (!isFonts) {
     return <Loading />;
   }
   return (
     <NativeBaseProvider>
-      <SafeAreaView style={{ backgroundColor: "#1E1E1E", height: "100%" }}>
+      <SafeAreaView style={{ backgroundColor: COLORS.PRIMARY, height: "100%" }}>
         <Index />
       </SafeAreaView>
     </NativeBaseProvider>

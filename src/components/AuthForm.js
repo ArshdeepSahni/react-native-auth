@@ -20,19 +20,20 @@ import {
   InputGroup,
 } from "native-base";
 import { LinearGradient } from "expo-linear-gradient";
-import { MaterialIcons, Feather } from "@expo/vector-icons";
+import { Feather } from "@expo/vector-icons";
+import { COLORS } from "../constants/Theme";
 const AuthForm = ({ style, authType, action, changeAuth }) => {
   const screenWidth = Dimensions.get("screen").width;
   return (
     <KeyboardAvoidingView
       h="100%"
       w="100%"
-      keyboardVerticalOffset={Platform.OS === "ios" ? 20 : 40}
+      keyboardVerticalOffset={Platform.OS === "ios" ? 120 : 40}
       behavior={Platform.OS === "ios" ? "padding" : "height"}
     >
       <Modal.Content
         style={{
-          backgroundColor: "#27292D",
+          backgroundColor: COLORS.LIGHT_GRAY,
           ...style,
         }}
         // my={0.5}
@@ -205,7 +206,7 @@ const AuthForm = ({ style, authType, action, changeAuth }) => {
               onPress={action}
               width="100%"
               style={{
-                backgroundColor: "#4A96FF",
+                backgroundColor: COLORS.CTA,
                 paddingVertical: 12,
                 borderRadius: 4,
                 justifyContent: "center",
@@ -242,7 +243,7 @@ const AuthForm = ({ style, authType, action, changeAuth }) => {
                     color: "#C5C7CA",
                   }}
                 >
-                  {authType === "login ->" ? "Register" : "Login ->"}
+                  {authType === "login" ? "Register ->" : "Login ->"}
                 </Text>
               </TouchableOpacity>
             </HStack>

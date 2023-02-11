@@ -1,13 +1,15 @@
 import React from "react";
-import { Actionsheet } from "native-base";
+import { Actionsheet, KeyboardAvoidingView } from "native-base";
 import LoginModal from "../screens/LoginModal";
 import { LinearGradient } from "expo-linear-gradient";
 import AuthForm from "./AuthForm";
-import { Dimensions } from "react-native";
-const AuthActionSheet = ({ isOpen, onClose, authType }) => {
+import { Dimensions, TouchableOpacity } from "react-native";
+import { MaterialIcons } from "@expo/vector-icons";
+import { COLORS } from "../constants/Theme";
+const AuthActionSheet = ({ isOpen, onClose, authType, changeAuth, action }) => {
   const screenWidth = Dimensions.get("screen").width;
   return (
-    <Actionsheet isOpen={isOpen} p={0}>
+    <Actionsheet isOpen={isOpen} onClose={onClose} p={0}>
       <Actionsheet.Content
         style={{
           position: "relative",
@@ -33,8 +35,27 @@ const AuthActionSheet = ({ isOpen, onClose, authType }) => {
             paddingTop: 4,
           }}
         >
+          <TouchableOpacity
+            onPress={onClose}
+            style={{
+              position: "absolute",
+              top: 16,
+              right: 16,
+              zIndex: 100,
+              width: 28,
+              height: 28,
+              borderRadius: 100,
+              justifyContent: "center",
+              alignItems: "center",
+              backgroundColor: COLORS.PRIMARY,
+            }}
+          >
+            <MaterialIcons name="close" size={16} color="#fff" />
+          </TouchableOpacity>
           {/* <Actionsheet.Item>abc</Actionsheet.Item> */}
           <AuthForm
+            action={action}
+            changeAuth={changeAuth}
             authType={authType}
             style={{ borderRadius: 16, flex: 1, width: screenWidth - 4 }}
           />
