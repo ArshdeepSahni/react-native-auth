@@ -10,10 +10,14 @@ const Index = () => {
       <Stack.Navigator>
         <Stack.Screen
           options={{ headerShown: false }}
+          name="Home"
+          component={Home}
+        />
+        <Stack.Screen
+          options={{ headerShown: false }}
           name="LoginModal"
           component={LoginModal}
         />
-        <Stack.Screen name="Home" component={Home} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -1,11 +1,14 @@
-import React from "react";
-import { Text } from "react-native";
+import React, { useState } from "react";
+import { Text, View } from "react-native";
 import AuthActionSheet from "../components/AuthActionSheet";
-const Home = () => {
+const Home = ({ navigation }) => {
+  const [loginSheet, setLoginSheet] = useState(false);
+  const [signupSheet, setSignupSheet] = useState(false);
   return (
     <View>
       <Text>Home</Text>
-      <AuthActionSheet />
+      <AuthActionSheet authType="login" isOpen={loginSheet} />
+      <AuthActionSheet authType="signup" isOpen={signupSheet} />
     </View>
   );
 };
